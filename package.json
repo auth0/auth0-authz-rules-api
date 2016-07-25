@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "lab -v"
+    "test": "lab -v",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "async": "~0.9.0",
@@ -30,7 +32,8 @@
     "xml2js": "~0.2.8",
     "xmldom": "~0.1.13",
     "xpath": "0.0.5",
-    "xtend": "~1.0.3"
+    "xtend": "~1.0.3",
+    "snyk": "^1.17.1"
   },
   "author": "",
   "license": "MIT",
@@ -38,5 +41,6 @@
   "devDependencies": {
     "code": "^1.5.0",
     "lab": "^5.14.0"
-  }
+  },
+  "snyk": true
 }
