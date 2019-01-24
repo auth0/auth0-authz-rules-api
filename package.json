@@ -14,7 +14,7 @@
     "couchbase": "~2.5.1",
     "easy-pbkdf2": "0.0.2",
     "jsonwebtoken": "~7.4.1",
-    "knex": "~0.13.0",
+    "knex": "~0.14.3",
     "lodash": "~2.4.1",
     "mongo-getdb": "^2.0.0",
     "mongodb": "^2.0.0",
