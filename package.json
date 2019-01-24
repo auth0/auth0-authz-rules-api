@@ -9,7 +9,7 @@
   "dependencies": {
     "async": "~0.9.0",
     "auth0": "^2.14.0",
-    "azure-storage": "~2.2.1",
+    "azure-storage": "^2.2.1",
     "bcrypt": "1.0.3",
     "couchbase": "~2.5.1",
     "easy-pbkdf2": "0.0.2",
