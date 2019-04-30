@@ -1,9 +1,8 @@
-var Code = require('code');
-var Lab = require('lab');
-var Api = require('../');
+const Api = require('../');
 
-var lab = exports.lab = Lab.script();
-var expect = Code.expect;
+const { expect } = require('@hapi/code');
+const Lab = require('@hapi/lab');
+const lab = exports.lab = Lab.script();
 
 var expectedFields = [
     '__auth0_api',
@@ -79,7 +78,6 @@ var errorClasses = {
 lab.experiment('The exposed api', {parallel: true}, function () {
     lab.test('has all expected fields', function (done) {
         expect(Object.keys(Api.api)).to.only.include(expectedFields);
-        done();
     });
 });
 
@@ -96,8 +94,6 @@ lab.experiment('The api exposes Error classes', {parallel: true}, function () {
             expect(err).to.be.an.instanceof(Error);
             expect(err).to.be.an.instanceof(constructor);
         });
-
-        done();
     });
 
     lab.test('that have common fields', function (done) {
@@ -113,8 +109,6 @@ lab.experiment('The api exposes Error classes', {parallel: true}, function () {
             expect(err.code).to.be.a.string();
             expect(err.statusCode).to.be.a.number();
         });
-
-        done();
     });
 
     lab.test('that have all expected fields with the correct values', function (done) {
@@ -132,8 +126,6 @@ lab.experiment('The api exposes Error classes', {parallel: true}, function () {
                 expect(err[field]).to.equal(value);
             });
         });
-
-        done();
     });
 });
 
@@ -144,7 +136,6 @@ lab.experiment('Api extension', {parallel: true}, function () {
         Api.extend(foo);
 
         expect(Object.keys(foo)).to.only.include(expectedFields);
-        done();
     });
 
     lab.test('will not extend a given object twice', function (done) {
@@ -161,7 +152,5 @@ lab.experiment('Api extension', {parallel: true}, function () {
 
         expect(foo.mongo).to.equal('mongooooo!!');
         expect(foo.mongo).to.not.equal(apiMongo);
-
-        done();
     });
 });
