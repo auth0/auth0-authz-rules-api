@@ -3,6 +3,7 @@
   "version": "3.2.0",
   "description": "",
   "main": "index.js",
+  "repository": "https://github.com/auth0/auth0-authz-rules-api",
   "scripts": {
     "test": "lab -v"
   },
@@ -10,7 +11,7 @@
     "async": "~0.9.0",
     "auth0": "2.0.0-alpha.6",
     "azure-storage": "~2.2.1",
-    "bcrypt": "1.0.3",
+    "bcrypt": "2.0.1",
     "couchbase": "~2.5.1",
     "easy-pbkdf2": "0.0.2",
     "jsonwebtoken": "~7.4.1",
@@ -25,7 +26,7 @@
     "q": "~1.0.1",
     "range_check": "0.0.1",
     "request": "~2.81.0",
-    "tedious": "~0.1.4",
+    "tedious": "1.11.0",
     "uuid": "~2.0.1",
     "xml2js": "~0.2.8",
     "xmldom": "~0.1.13",
@@ -36,8 +37,9 @@
   "license": "MIT",
   "homepage": "https://github.com/auth0/auth0-authz-rules-api",
   "devDependencies": {
+    "@hapi/code": "^5.3.1",
+    "@hapi/lab": "^18.1.2",
     "code": "^1.5.0",
-    "eslint": "^4.19.1",
-    "lab": "^5.14.0"
+    "eslint": "^4.19.1"
   }
 }
