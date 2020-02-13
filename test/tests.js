@@ -1,5 +1,5 @@
-var Code = require('code');
-var Lab = require('lab');
+const Code = require("@hapi/code");
+const Lab = require("@hapi/lab");
 var Api = require('../');
 
 var lab = exports.lab = Lab.script();
@@ -77,14 +77,13 @@ var errorClasses = {
 };
 
 lab.experiment('The exposed api', {parallel: true}, function () {
-    lab.test('has all expected fields', function (done) {
+    lab.test('has all expected fields', function () {
         expect(Object.keys(Api.api)).to.only.include(expectedFields);
-        done();
     });
 });
 
 lab.experiment('The api exposes Error classes', {parallel: true}, function () {
-    lab.test('that inherit from Error', function (done) {
+    lab.test('that inherit from Error', function () {
         Object.keys(errorClasses).forEach(function (errorClass) {
             var fixture = errorClasses[errorClass];
             var constructor = Api.api[errorClass];
@@ -97,10 +96,9 @@ lab.experiment('The api exposes Error classes', {parallel: true}, function () {
             expect(err).to.be.an.instanceof(constructor);
         });
 
-        done();
     });
 
-    lab.test('that have common fields', function (done) {
+    lab.test('that have common fields', function () {
         Object.keys(errorClasses).forEach(function (errorClass) {
             var fixture = errorClasses[errorClass];
             var constructor = Api.api[errorClass];
@@ -114,10 +112,9 @@ lab.experiment('The api exposes Error classes', {parallel: true}, function () {
             expect(err.statusCode).to.be.a.number();
         });
 
-        done();
     });
 
-    lab.test('that have all expected fields with the correct values', function (done) {
+    lab.test('that have all expected fields with the correct values', function () {
         Object.keys(errorClasses).forEach(function (errorClass) {
             var fixture = errorClasses[errorClass];
             var constructor = Api.api[errorClass];
@@ -133,21 +130,19 @@ lab.experiment('The api exposes Error classes', {parallel: true}, function () {
             });
         });
 
-        done();
     });
 });
 
 lab.experiment('Api extension', {parallel: true}, function () {
-    lab.test('can be used to expose the api on any object', function (done) {
+    lab.test('can be used to expose the api on any object', function () {
         var foo = {};
 
         Api.extend(foo);
 
         expect(Object.keys(foo)).to.only.include(expectedFields);
-        done();
     });
 
-    lab.test('will not extend a given object twice', function (done) {
+    lab.test('will not extend a given object twice', function () {
         var foo = {};
 
         Api.extend(foo);
@@ -161,7 +156,5 @@ lab.experiment('Api extension', {parallel: true}, function () {
 
         expect(foo.mongo).to.equal('mongooooo!!');
         expect(foo.mongo).to.not.equal(apiMongo);
-
-        done();
     });
 });
