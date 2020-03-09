@@ -1,6 +1,6 @@
 {
   "name": "auth0-authz-rules-api",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
