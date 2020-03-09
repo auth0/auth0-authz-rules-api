@@ -44,6 +44,8 @@ workflows:
   build_test_and_deploy:
     jobs:
       - build_and_test:
+          name: build_and_test_node12
+          v: "12"
           filters:
             tags:
               only: /^v.*/
