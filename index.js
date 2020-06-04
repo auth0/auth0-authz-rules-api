@@ -251,10 +251,14 @@ function extend (api) {
     configurable: false,
     enumerable: true,
     get:  function () {
-      var tediousSpec = require.__verquire
-        ? 'tedious@0.1.4'
-        : 'tedious';
-      var tedious = require(tediousSpec);
+      var tedious;
+      
+      try {
+        tedious = require('tedious@0.1.4');
+      } catch (__) {
+        tedious = require('tedious');
+      }
+      
       var sqlserver = {
         connect: function (config) {
           var Connection = tedious.Connection;
@@ -352,10 +356,15 @@ function extend (api) {
     configurable: false,
     enumerable: true,
     get: function () {
-      var xtendSpec = require.__verquire
-        ? 'xtend@1.0.3'
-        : 'xtend';
-      return require(xtendSpec);
+      var xtend;
+      
+      try {
+        xtend = require('xtend@1.0.3');
+      } catch (__) {
+        xtend = require('xtend');
+      }
+      
+      return xtend;
     }
   });
 
